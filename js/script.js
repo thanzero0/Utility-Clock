@@ -1,7 +1,7 @@
-// State
 let showDate = true;
 let use24h = true;
 let precision = 'hms'; // 'h', 'hm', 'hms'
+let currentTheme = localStorage.getItem('clock-theme') || 'dark';
 
 function updateClock() {
     const now = new Date();
@@ -44,7 +44,8 @@ const settingsBtn = document.getElementById('settings-btn');
 const settingsPanel = document.getElementById('settings-panel');
 const dateSwitch = document.getElementById('toggle-date-btn');
 const formatSwitch = document.getElementById('toggle-24h-btn');
-const precisionBtns = document.querySelectorAll('.segment');
+const precisionBtns = document.querySelectorAll('#precision-group .segment');
+const themeBtns = document.querySelectorAll('.theme-segment');
 const dateElement = document.getElementById('date');
 
 // Toggle Settings Panel
@@ -87,6 +88,26 @@ precisionBtns.forEach(btn => {
     });
 });
 
+// Theme Controls
+themeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        currentTheme = btn.dataset.theme;
+        themeBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyTheme();
+    });
+});
+
+function applyTheme() {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    localStorage.setItem('clock-theme', currentTheme);
+    
+    // Update active button state on init
+    themeBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.theme === currentTheme);
+    });
+}
+
 // Close panel when clicking outside
 document.addEventListener('click', (e) => {
     if (!settingsPanel.contains(e.target) && !settingsBtn.contains(e.target)) {
@@ -97,3 +118,4 @@ document.addEventListener('click', (e) => {
 // Initialize
 setInterval(updateClock, 100); // Faster update for better responsiveness
 updateClock();
+applyTheme();

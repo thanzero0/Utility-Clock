@@ -29,6 +29,10 @@ function updateClock() {
         timeElement.innerHTML = timeString;
     }
 
+    // Tab Title Update
+    const cleanTime = `${h}:${m}${precision === 'hms' ? `:${s}` : ''}${!use24h ? ` ${ampm}` : ''}`;
+    document.title = `${cleanTime} - Clock`;
+
     // Date Update Logic
     const dateElement = document.getElementById('date');
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };

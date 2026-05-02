@@ -516,7 +516,7 @@ body {
 
 .switch.active .dot {
     left: calc(100% - 20px);
-    background: #000;
+    background: var(--bg-color);
     box-shadow: none;
 }
 
@@ -527,7 +527,7 @@ body {
 /* Segmented Control Styling */
 .segmented-control {
     display: flex;
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--glass-bg);
     padding: 4px;
     border-radius: 12px;
     border: 1px solid var(--glass-border);
@@ -552,14 +552,14 @@ body {
 }
 
 .segment.active {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text-primary);
+    background: var(--accent-color);
+    color: var(--bg-color);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .segment:hover:not(.active) {
     color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--glass-border);
 }
 
 @keyframes switch-pulse {

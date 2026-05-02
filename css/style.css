@@ -10,6 +10,7 @@
     --glow-color: rgba(255, 255, 255, 0.1);
     --surface-color: #111111;
     --clock-scale: 1;
+    --cursor-color: #ffffff;
 }
 
 body.light-theme {
@@ -21,6 +22,7 @@ body.light-theme {
     --text-secondary: #4b5563;
     --glow-color: rgba(0, 0, 0, 0.05);
     --surface-color: #ffffff;
+    --cursor-color: #f97316;
 }
 
 body.neon-theme {
@@ -32,6 +34,7 @@ body.neon-theme {
     --text-secondary: #32cd32;
     --glow-color: rgba(57, 255, 20, 0.3);
     --surface-color: #0a0a0a;
+    --cursor-color: #39ff14;
 }
 
 body.sunset-theme {
@@ -43,6 +46,7 @@ body.sunset-theme {
     --text-secondary: #feb47b;
     --glow-color: rgba(234, 88, 12, 0.3);
     --surface-color: #16213e;
+    --cursor-color: #ea580c;
 }
 
 body.cyberpunk-theme {
@@ -54,6 +58,7 @@ body.cyberpunk-theme {
     --text-secondary: #7000ff;
     --glow-color: rgba(255, 0, 234, 0.3);
     --surface-color: #001233;
+    --cursor-color: #ff00ea;
 }
 
 body.forest-theme {
@@ -65,6 +70,7 @@ body.forest-theme {
     --text-secondary: #4ade80;
     --glow-color: rgba(34, 197, 94, 0.3);
     --surface-color: #142116;
+    --cursor-color: #22c55e;
 }
 
 body.ocean-theme {
@@ -76,6 +82,7 @@ body.ocean-theme {
     --text-secondary: #7dd3fc;
     --glow-color: rgba(2, 132, 199, 0.3);
     --surface-color: #001f54;
+    --cursor-color: #0284c7;
 }
 
 body {
@@ -91,6 +98,20 @@ body {
     user-select: none;
     overflow: hidden;
     transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.cursor-glow {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--cursor-color) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  filter: blur(80px);
 }
 
 .clock-wrapper {

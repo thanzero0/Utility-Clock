@@ -244,3 +244,15 @@ setTheme(savedTheme, true);
 setSize(savedSize, true);
 setInterval(updateClock, 100);
 updateClock();
+
+// Cursor Glow
+const cursorGlow = document.getElementById('cursor-glow');
+window.addEventListener('mousemove', (e) => {
+    if (cursorGlow) {
+        cursorGlow.style.left = `${e.clientX}px`;
+        cursorGlow.style.top = `${e.clientY}px`;
+        if (cursorGlow.style.opacity === '0' || !cursorGlow.style.opacity) cursorGlow.style.opacity = '1';
+    }
+});
+document.addEventListener('mouseleave', () => { if(cursorGlow) cursorGlow.style.opacity = '0'; });
+document.addEventListener('mouseenter', () => { if(cursorGlow) cursorGlow.style.opacity = '1'; });

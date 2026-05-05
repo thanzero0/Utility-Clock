@@ -301,7 +301,8 @@ body {
 }
 
 /* Menus & Panels */
-.theme-menu, .size-menu {
+.theme-menu,
+.size-menu {
     position: absolute;
     bottom: calc(100% + 28px);
     left: 0;
@@ -321,13 +322,15 @@ body {
     z-index: 1000;
 }
 
-.theme-menu.active, .size-menu.active {
+.theme-menu.active,
+.size-menu.active {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-.theme-opt, .size-opt {
+.theme-opt,
+.size-opt {
     width: 100%;
     padding: 10px 14px;
     border-radius: 8px;
@@ -341,22 +344,26 @@ body {
     font-weight: 500;
 }
 
-.theme-opt:hover, .size-opt:hover {
+.theme-opt:hover,
+.size-opt:hover {
     background: var(--glass-border);
 }
 
-.theme-opt.active, .size-opt.active {
+.theme-opt.active,
+.size-opt.active {
     background: var(--accent-color);
     color: var(--bg-color);
 }
 
-.theme-opt.focus, .size-opt.focus {
+.theme-opt.focus,
+.size-opt.focus {
     background: var(--glass-border);
     outline: none;
 }
 
 /* Custom Panel Base Styles */
-.custom-theme-panel, .custom-size-panel {
+.custom-theme-panel,
+.custom-size-panel {
     position: absolute;
     bottom: calc(100% + 28px);
     left: 0;
@@ -374,7 +381,8 @@ body {
     backdrop-filter: blur(15px);
 }
 
-.custom-theme-panel.active, .custom-size-panel.active {
+.custom-theme-panel.active,
+.custom-size-panel.active {
     display: flex;
 }
 
@@ -442,12 +450,19 @@ body {
 }
 
 @keyframes fadeInCustom {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 #settings-panel {
-    position: fixed;
+    position: absolute;
     bottom: calc(100% + 28px);
     left: 0;
     transform: translateY(20px);
